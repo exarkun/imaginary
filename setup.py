@@ -1,5 +1,3 @@
-from epsilon.setuphelper import autosetup
-
 import versioneer
 versioneer.vcs = "git"
 versioneer.versionfile_source = "imaginary/_version.py"
@@ -7,12 +5,15 @@ versioneer.versionfile_build = "imaginary/_version.py"
 versioneer.tag_prefix= ""
 versioneer.parentdir_prefix = "Imaginary-"
 
+from setuptools import find_packages, setup
+
 with open("README.rst") as fObj:
     readme = fObj.read()
 
-distobj = autosetup(
+distobj = setup(
     name="Imaginary",
     version=versioneer.get_version(),
+    packages=find_packages(),
     maintainer="Divmod, Inc.",
     maintainer_email="support@divmod.org",
     url="http://divmod.org/trac/wiki/DivmodImaginary",
